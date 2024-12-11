@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Factorial Finder App By Pranjal</title>
+        <style>
+            *{font-size:35px;font-family: 'Times New Roman', Times, serif;}
+            body{background-color:lightsalmon;color:black;}
+            h1{background-color: black;color:aliceblue;border-radius:20px;width:60%;}
+            .btn{color:blanchedalmond;background-color: black;width:30%;margin-left:2%;border-radius:20px;}
+            .btn:hover{color:aqua;}
+        </style>    
+    </head>    
+    <body>
+        <center>
+            <form onsubmit="find()">
+                <h1>Factorial Finder App</h1>
+                <br/><br/>
+                <input type="number" placeholder="enter +ve integer" id="num" style="width:600px;"/>
+                <br/><br/>
+                <input type="submit" value="Method1" class="btn"/>
+                <input type="submit" value="Method2" class="btn"/>
+                <input type="submit" value="Method3" class="btn"/>
+                <br/><br/>
+            </form>    
+            <h2 id="msg"/>
+            <script>
+                function find()  
+                {
+                    event.preventDefault();
+                    let num=document.getElementById("num");
+                    let msg=document.getElementById("msg");
+
+                    if(num.value==="")
+                    {
+                        alert("please enter integer");
+                        msg.innerHTML="";
+                        num.focus();
+                        return;
+                    }
+
+                    let n=parseFloat(num.value);
+
+                    if(n<0)
+                    {
+                        alert("num should be minimum 0");
+                        msg.innerHTML="";
+                        num.focus();
+                        return;
+                    }
+
+                    let action=document.activeElement.value;
+                    let ans="";
+
+                    if(action==="Method1")
+                    {
+                        let i=1,f=1;
+                        while(i<=n)
+                        {
+                            f=f*i;
+                            i++;
+                        }
+                        ans="Method1-->"+f;
+                        msg.innerHTML=ans;
+                    }
+                    else if(action==="Method2")
+                    {
+                        let i=1,f=1;
+                        do
+                        {
+                            f=f*i;
+                            i++;
+                        }
+                        while(i<=n);
+                        ans="Method2-->"+f;
+                        msg.innerHTML=ans;
+                    }
+                    else if(action==="Method3")
+                    {
+                        let f=1;
+                        for(i=1;i<=n;i++)
+                        {
+                            f=f*i;
+                        }
+                        ans="Method3-->"+f;
+                        msg.innerHTML=ans;
+                    }
+                }
+            </script>    
+        </center>
+    </body>    
+</html>
